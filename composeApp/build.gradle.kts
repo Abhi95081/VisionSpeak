@@ -30,8 +30,17 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
 
-//            If using navigation-compose (android only)
+            // Navigation (Android only)
             implementation("androidx.navigation:navigation-compose:2.8.0")
+
+            // Coil (Android only)
+            implementation("io.coil-kt:coil-compose:2.4.0")
+
+            // Ktor Android engine
+            implementation("io.ktor:ktor-client-okhttp:2.3.6")
+
+            // Coroutines Android
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -42,6 +51,15 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+
+            // Ktor shared (MUST use same version everywhere)
+            implementation("io.ktor:ktor-client-core:2.3.6")
+            implementation("io.ktor:ktor-client-content-negotiation:2.3.6")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.6")
+
+            // Kotlinx
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
