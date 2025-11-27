@@ -10,14 +10,14 @@ import java.util.*
 
 object CameraHelper {
     fun createImageFile(context: Context): File {
-        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+        val timeStamp = SimpleDateFormat("yyyyMMdd_smis", Locale.US).format(Date())
         val filename = "JPEG_${timeStamp}_"
         val storageDir = context.cacheDir
         return File.createTempFile(filename, ".jpg", storageDir)
     }
 
     fun fileToUri(context: Context, file: File): Uri {
-        return FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", file)
+        return FileProvider.getUriForFile(context, "${context.packageName}.file provider", file)
     }
 
     fun openCameraIntent(outputUri: Uri): Intent {
