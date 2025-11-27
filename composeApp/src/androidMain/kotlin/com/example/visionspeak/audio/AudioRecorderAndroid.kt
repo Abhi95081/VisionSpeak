@@ -44,7 +44,7 @@ class AudioRecorderAndroid : AudioRecorder {
     override suspend fun getAmplitude(): Float = withContext(Dispatchers.Main) {
         val r = recorder ?: return@withContext 0f
         return@withContext try {
-            val amp = r.maxAmplitude // 0..32767
+            val amp = r.maxAmplitude
             val db = 20 * log10(amp.toDouble() / 32768.0 + 1e-6).toFloat()
             ((db + 60) / 60).coerceIn(0f, 1f)
         } catch (_: Exception) { 0f }
